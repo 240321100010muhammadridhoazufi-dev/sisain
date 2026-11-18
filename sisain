@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SisaIn - Wadah Baik, Langkah Hijau | Panduan & Informasi Produk</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        sisain: {
+                            cream: '#F5F4E8',
+                            light: '#EBF0E6',
+                            sage: '#7A9666',
+                            green: '#426138',
+                            dark: '#2B4223',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-sisain-cream text-stone-800 antialiased selection:bg-sisain-sage selection:text-white">
+
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-sisain-cream/90 backdrop-blur-md border-b border-sisain-green/15">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 rounded-2xl bg-sisain-cream border border-sisain-green/20 flex items-center justify-center overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+                        <!-- Gambar Logo Asli (dengan fallback SVG ikonik SisaIn jika file lokal belum di-link) -->
+                        <img src="WhatsApp Image 2026-11-18 at 14.21.20.jpeg" 
+                             alt="Logo SisaIn" 
+                             class="w-full h-full object-cover"
+                             onerror="this.style.display='none'; document.getElementById('fallback-logo').classList.remove('hidden');">
+                        <!-- Fallback SVG Logo sesuai identitas visual SisaIn -->
+                        <svg id="fallback-logo" class="hidden w-9 h-9 text-sisain-green" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="10" y="24" width="44" height="28" rx="8" fill="#426138"/>
+                            <rect x="8" y="16" width="48" height="7" rx="3.5" fill="#7A9666"/>
+                            <path d="M32 42C32 33 41 28 45 28C45 36 39 42 32 42Z" fill="#F5F4E8"/>
+                            <path d="M32 42C32 36 26 33 22 33C22 38 26 42 32 42Z" fill="#EBF0E6"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-2xl tracking-tight text-sisain-green block leading-none">SisaIn</span>
+                        <span class="text-[11px] font-medium text-sisain-sage tracking-wide">Wadah Baik, Langkah Hijau</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                    <a href="#produk" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-sisain-green hover:bg-sisain-light transition">Informasi Produk</a>
+                    <a href="#penggunaan" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-sisain-green hover:bg-sisain-light transition">Panduan Penggunaan</a>
+                    <a href="#pencucian" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-sisain-green hover:bg-sisain-light transition">Cara Mencuci</a>
+                    <a href="#perawatan" class="px-3 py-2 rounded-xl text-sm font-medium text-stone-700 hover:text-sisain-green hover:bg-sisain-light transition">Tips Perawatan</a>
+                    <a href="#kontak" class="ml-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-sisain-green text-white hover:bg-sisain-dark transition shadow-sm">Kontak Kami</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" aria-label="Buka Menu" class="md:hidden p-3 rounded-xl text-sisain-green hover:bg-sisain-light transition">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-sisain-cream border-b border-sisain-green/15 px-4 pt-2 pb-5 space-y-1">
+            <a href="#produk" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-stone-700 hover:bg-sisain-light hover:text-sisain-green">Informasi Produk</a>
+            <a href="#penggunaan" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-stone-700 hover:bg-sisain-light hover:text-sisain-green">Panduan Penggunaan</a>
+            <a href="#pencucian" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-stone-700 hover:bg-sisain-light hover:text-sisain-green">Cara Mencuci</a>
+            <a href="#perawatan" class="mobile-link block px-4 py-3 rounded-xl text-base font-medium text-stone-700 hover:bg-sisain-light hover:text-sisain-green">Tips Perawatan</a>
+            <a href="#kontak" class="mobile-link block px-4 py-3 mt-2 rounded-xl text-base font-semibold bg-sisain-green text-white text-center">Kontak Kami</a>
+        </div>
+    </header>
+
+    <!-- Hero & Prototype Showcase Section -->
+    <section class="relative pt-8 pb-16 sm:pt-12 sm:pb-24 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+                
+                <!-- Left Content -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sisain-light border border-sisain-sage/30 text-sisain-green text-xs sm:text-sm font-semibold">
+                        <i data-lucide="qr-code" class="w-4 h-4"></i>
+                        <span>Panduan Digital Resmi SisaIn</span>
+                    </div>
+
+                    <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-sisain-dark leading-tight">
+                        Bawa Sisa Makanan, <span class="text-sisain-sage">Bawa Perubahan.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-stone-600 leading-relaxed">
+                        <strong>SisaIn</strong> adalah wadah makan <em>reusable</em> dengan sekat silikon lepas-pasang, dirancang khusus untuk memudahkan mahasiswa dan masyarakat membawa pulang sisa makanan dengan aman, praktis, dan higienis.
+                    </p>
+
+                    <!-- Value Pills -->
+                    <div class="flex flex-wrap gap-3 pt-1">
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white border border-sisain-green/15 text-sm font-medium text-sisain-dark shadow-sm">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-sisain-green"></i> Praktis & Anti Bocor
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white border border-sisain-green/15 text-sm font-medium text-sisain-dark shadow-sm">
+                            <i data-lucide="leaf" class="w-4 h-4 text-sisain-green"></i> Ramah Lingkungan
+                        </span>
+                        <span class="inline-flex items-center gap-2 px-3.5 py-2 rounded-2xl bg-white border border-sisain-green/15 text-sm font-medium text-sisain-dark shadow-sm">
+                            <i data-lucide="refresh-cw" class="w-4 h-4 text-sisain-green"></i> Reusable Food-Grade
+                        </span>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                        <a href="#penggunaan" class="inline-flex justify-center items-center gap-2 px-6 py-3.5 rounded-2xl bg-sisain-green text-white font-semibold hover:bg-sisain-dark transition shadow-md shadow-sisain-green/20">
+                            <span>Mulai Panduan</span>
+                            <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+                        </a>
+                        <button onclick="openPhotoUploader()" class="inline-flex justify-center items-center gap-2 px-5 py-3.5 rounded-2xl bg-white border border-sisain-green/25 text-sisain-green font-semibold hover:bg-sisain-light transition">
+                            <i data-lucide="image-plus" class="w-5 h-5"></i>
+                            <span>Muat Gambar Lokal</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Content: Prototype & Logo Visual Card -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-3 sm:p-4 rounded-3xl shadow-xl shadow-sisain-green/10 border border-sisain-green/15 relative">
+                        <!-- Floating Brand Logo Badge -->
+                        <div class="flex items-center justify-between mb-3 px-2">
+                            <div class="flex items-center gap-2.5">
+                                <img id="hero-logo-img" src="WhatsApp Image 2026-11-18 at 14.21.20.jpeg" 
+                                     alt="Logo SisaIn" 
+                                     class="h-10 w-auto rounded-xl object-contain border border-stone-200 bg-sisain-cream px-2 py-1"
+                                     onerror="this.style.display='none'">
+                                <span class="text-xs font-semibold uppercase tracking-wider text-sisain-sage bg-sisain-light px-3 py-1 rounded-full">
+                                    Prototype Resmi SisaIn
+                                </span>
+                            </div>
+                            <button onclick="openLightbox()" class="text-xs font-medium text-sisain-green hover:underline flex items-center gap-1 p-1.5 rounded-lg hover:bg-sisain-light">
+                                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i> Perbesar Poster
+                            </button>
+                        </div>
+
+                        <!-- Main Prototype Poster Image -->
+                        <div class="relative rounded-2xl overflow-hidden bg-sisain-cream border border-stone-200 group cursor-pointer" onclick="openLightbox()">
+                            <img id="prototype-main-img" 
+                                 src="Gemini_Generated_Image_ukntjyukntjyuknt.jpg" 
+                                 alt="Infografis & Prototype Wadah Makan SisaIn" 
+                                 class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                                 onerror="handlePrototypeFallback(this)">
+                            
+                            <!-- Fallback Interactive Prototype Illustration jika file gambar belum berada di folder yang sama -->
+                            <div id="prototype-fallback-box" class="hidden p-8 text-center space-y-4 bg-gradient-to-br from-sisain-light to-sisain-cream">
+                                <div class="mx-auto w-24 h-24 rounded-3xl bg-sisain-green/10 flex items-center justify-center text-sisain-green">
+                                    <i data-lucide="package-open" class="w-12 h-12"></i>
+                                </div>
+                                <div class="max-w-md mx-auto space-y-2">
+                                    <h3 class="font-heading font-bold text-lg text-sisain-dark">Tampilkan Foto Asli Prototype & Logo</h3>
+                                    <p class="text-sm text-stone-600">
+                                        Pastikan file gambar berada di folder yang sama dengan HTML ini, atau pilih file gambar asli dari perangkat Anda sekarang.
+                                    </p>
+                                </div>
+                                <button onclick="event.stopPropagation(); openPhotoUploader();" class="px-5 py-2.5 rounded-xl bg-sisain-green text-white text-sm font-semibold hover:bg-sisain-dark transition">
+                                    Pilih File Gambar Prototype & Logo
+                                </button>
+                            </div>
+                        </div>
+
+                        <p class="text-xs text-stone-500 mt-3 px-2 flex items-center justify-between">
+                            <span>Klik gambar prototype untuk melihat detail spesifikasi penuh.</span>
+                            <span class="font-medium text-sisain-green">3 Sekat • Food Grade</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Informasi Produk & Spesifikasi Prototype -->
+    <section id="produk" class="py-16 sm:py-20 bg-white border-y border-sisain-green/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-sisain-sage">Informasi Produk</span>
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-sisain-dark mt-2">
+                    Anatomi & Fitur Unggulan SisaIn
+                </h2>
+                <p class="text-stone-600 mt-3 text-sm sm:text-base">
+                    Dirancang presisi dengan 4 komponen utama yang mudah dibongkar-pasang sehingga makanan tidak tercampur dan bebas bau.
+                </p>
+            </div>
+
+            <!-- 4 Komponen Detail Produk -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+                <div class="p-5 rounded-3xl bg-sisain-cream/60 border border-sisain-green/15 hover:border-sisain-sage transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-2xl bg-sisain-green text-white flex items-center justify-center shadow-sm">
+                                <i data-lucide="lock" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xs font-bold text-sisain-sage bg-white px-2.5 py-1 rounded-full border border-sisain-green/10">Poin 01</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">1. Tutup Pengunci Kuat</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Tutup transparan dengan 4 klip pengunci rapat di setiap sisi dan dilengkapi <strong>Kode QR</strong> panduan langsung pada permukaan tutup.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Tutup Pengunci"></div>
+                </div>
+
+                <div class="p-5 rounded-3xl bg-sisain-cream/60 border border-sisain-green/15 hover:border-sisain-sage transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-2xl bg-sisain-sage text-white flex items-center justify-center shadow-sm">
+                                <i data-lucide="droplets" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xs font-bold text-sisain-sage bg-white px-2.5 py-1 rounded-full border border-sisain-green/10">Poin 02</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">2. Seal Silikon Anti-Bocor</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Karet seal silikon elastis yang mencegah kuah atau minyak tumpah di dalam tas. Mudah dilepas agar tidak menyimpan kerak kotoran.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Seal Silikon"></div>
+                </div>
+
+                <div class="p-5 rounded-3xl bg-sisain-cream/60 border border-sisain-green/15 hover:border-sisain-sage transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-2xl bg-sisain-green text-white flex items-center justify-center shadow-sm">
+                                <i data-lucide="layout-grid" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xs font-bold text-sisain-sage bg-white px-2.5 py-1 rounded-full border border-sisain-green/10">Poin 03</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">3. Sekat Silikon Fleksibel</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Membagi wadah menjadi <strong>3 kompartemen</strong> (Nasi ±450 ml, Lauk ±150 ml, Cemilan ±150 ml). Bisa dilepas saat membawa makanan berkuah banyak.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Sekat Silikon"></div>
+                </div>
+
+                <div class="p-5 rounded-3xl bg-sisain-cream/60 border border-sisain-green/15 hover:border-sisain-sage transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-11 h-11 rounded-2xl bg-sisain-sage text-white flex items-center justify-center shadow-sm">
+                                <i data-lucide="box" class="w-5 h-5"></i>
+                            </div>
+                            <span class="text-xs font-bold text-sisain-sage bg-white px-2.5 py-1 rounded-full border border-sisain-green/10">Poin 04</span>
+                        </div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">4. Wadah Utama Food Grade</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Material berkualitas <em>food-grade</em> bebas BPA yang kokoh, ringan dibawa ke kampus, dan tahan lama untuk penggunaan berulang.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Wadah Utama"></div>
+                </div>
+            </div>
+
+            <!-- Pilihan Ukuran & Dimensi -->
+            <div class="bg-sisain-light/70 rounded-3xl p-6 sm:p-8 border border-sisain-sage/25">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                    <div>
+                        <h3 class="font-heading font-bold text-xl text-sisain-dark">Pilihan Ukuran & Dimensi</h3>
+                        <p class="text-sm text-stone-600">Dimensi standar Medium: Panjang 18 cm × Lebar 12 cm × Tinggi 6 cm</p>
+                    </div>
+                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full bg-white text-sisain-green border border-sisain-green/20 self-start">
+                        <i data-lucide="ruler" class="w-4 h-4"></i> BPA-Free & Food Safe
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="bg-white p-5 rounded-2xl border border-stone-200 flex items-start justify-between">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-sisain-sage">Varian Compact</span>
+                            <h4 class="font-heading font-bold text-lg text-sisain-dark mt-0.5">Small (300 ml)</h4>
+                            <p class="text-sm text-stone-600 mt-1">Cocok untuk camilan, buah potong, jajanan, atau porsi kecil.</p>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-lg bg-sisain-cream text-sisain-green font-bold text-xs">300ml</span>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border-2 border-sisain-green flex items-start justify-between relative shadow-sm">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-sisain-green">Paling Populer • 3 Sekat</span>
+                            <h4 class="font-heading font-bold text-lg text-sisain-dark mt-0.5">Medium (600–750 ml)</h4>
+                            <p class="text-sm text-stone-600 mt-1">Ideal untuk 1 porsi makanan utama lengkap (nasi + 2 jenis lauk).</p>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-lg bg-sisain-green text-white font-bold text-xs">Medium</span>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-stone-200 flex items-start justify-between">
+                        <div>
+                            <span class="text-xs font-bold uppercase text-sisain-sage">Varian Ekstra</span>
+                            <h4 class="font-heading font-bold text-lg text-sisain-dark mt-0.5">Large (1.000 ml)</h4>
+                            <p class="text-sm text-stone-600 mt-1">Cocok untuk porsi besar, makanan berkuah tanpa sekat, atau berbagi.</p>
+                        </div>
+                        <span class="px-2.5 py-1 rounded-lg bg-sisain-cream text-sisain-green font-bold text-xs">1.000ml</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visual Galeri Aktivitas & Komponen SisaIn -->
+            <div class="mt-14 pt-12 border-t border-sisain-green/10">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-sisain-sage">Galeri Visual Produk</span>
+                        <h3 class="font-heading font-bold text-xl sm:text-2xl text-sisain-dark mt-1">
+                            Penggunaan, Pencucian & Perawatan Sehari-hari
+                        </h3>
+                        <p class="text-sm text-stone-600 mt-1">
+                            Ilustrasi lengkap mulai dari penggunaan di kampus, pembongkaran seal silikon, hingga pengeringan wadah.
+                        </p>
+                    </div>
+                    <button onclick="openLightbox('gallery-visual-img')" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-sisain-light text-sisain-green text-xs font-semibold hover:bg-sisain-sage hover:text-white transition self-start">
+                        <i data-lucide="zoom-in" class="w-4 h-4"></i>
+                        <span>Perbesar Galeri</span>
+                    </button>
+                </div>
+
+                <div class="bg-sisain-cream/60 p-3 sm:p-4 rounded-3xl border border-sisain-green/15 shadow-sm">
+                    <div class="relative rounded-2xl overflow-hidden bg-white border border-stone-200 cursor-pointer group" onclick="openLightbox('gallery-visual-img')">
+                        <img id="gallery-visual-img" 
+                             src="Gemini_Generated_Image_hd2z4whd2z4whd2z.jpg" 
+                             alt="Galeri Penggunaan, Komponen, Pencucian dan Perawatan SisaIn" 
+                             class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.01]"
+                             onerror="handleGalleryFallback(this)">
+                        
+                        <div id="gallery-fallback-box" class="hidden p-8 text-center space-y-3 bg-sisain-light/60">
+                            <p class="text-sm font-medium text-sisain-dark">Gambar Galeri Aktivitas SisaIn (<code>Gemini_Generated_Image_hd2z4whd2z4whd2z.jpg</code>)</p>
+                            <button onclick="event.stopPropagation(); openPhotoUploader();" class="px-4 py-2 rounded-xl bg-sisain-green text-white text-xs font-semibold hover:bg-sisain-dark transition">
+                                Pilih File Gambar Galeri
+                            </button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-3 px-1 text-[11px] font-medium text-stone-600 text-center">
+                        <span class="bg-white py-1.5 px-2 rounded-lg border border-stone-200/80">1. Praktis Dibawa</span>
+                        <span class="bg-white py-1.5 px-2 rounded-lg border border-stone-200/80">2. Sekat Lepas-Pasang</span>
+                        <span class="bg-white py-1.5 px-2 rounded-lg border border-stone-200/80">3. Kedap Udara</span>
+                        <span class="bg-white py-1.5 px-2 rounded-lg border border-stone-200/80">4. Mudah Dicuci</span>
+                        <span class="bg-white py-1.5 px-2 rounded-lg border border-stone-200/80">5. Kering Sempurna</span>
+                        <span class="bg-white py-1.5 px-2 rounded-lg border border-stone-200/80">6. Scan QR Panduan</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Panduan Penggunaan -->
+    <section id="penggunaan" class="py-16 sm:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-sisain-sage">Langkah Demi Langkah</span>
+                <h2 class="font-heading text-2xl sm:text-3xl lg:text-4xl font-extrabold text-sisain-dark mt-2">
+                    Panduan Penggunaan SisaIn
+                </h2>
+                <p class="text-stone-600 mt-3 text-sm sm:text-base">
+                    Ikuti 4 langkah mudah berikut untuk membungkus sisa makanan dengan rapi dan higienis.
+                </p>
+            </div>
+
+            <!-- Interactive Mode Switcher (Dengan Sekat vs Tanpa Sekat) -->
+            <div class="flex justify-center mb-10">
+                <div class="inline-flex p-1.5 rounded-2xl bg-white border border-sisain-green/20 shadow-sm">
+                    <button id="btn-mode-sekat" onclick="switchUsageMode('sekat')" class="px-4 sm:px-6 py-2.5 rounded-xl text-sm font-semibold bg-sisain-green text-white transition">
+                        Mode Dengan Sekat (3 Menu)
+                    </button>
+                    <button id="btn-mode-tanpa" onclick="switchUsageMode('tanpa')" class="px-4 sm:px-6 py-2.5 rounded-xl text-sm font-semibold text-stone-600 hover:text-sisain-green transition">
+                        Mode Tanpa Sekat (Berkuah)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mode Info Banner -->
+            <div id="mode-description" class="max-w-3xl mx-auto mb-10 p-4 rounded-2xl bg-sisain-light border border-sisain-sage/30 text-center text-sm text-sisain-dark">
+                <strong>Mode Dengan Sekat:</strong> Pasang sekat silikon di dalam wadah untuk memisahkan nasi (450 ml), lauk gorengan (150 ml), dan jajanan/sayur (150 ml) agar rasa tidak bercampur.
+            </div>
+
+            <!-- 4 Steps Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-white rounded-3xl p-5 border border-sisain-green/15 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-sisain-green text-white font-heading font-bold flex items-center justify-center text-lg mb-4">1</div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">Isi Dengan Sisa Makanan</h3>
+                        <p id="step1-text" class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Masukkan nasi pada kompartemen besar dan pisahkan lauk atau camilan ke dua sekat kecil agar tetap renyah dan rapi.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Step 1: Isi Makanan"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white rounded-3xl p-5 border border-sisain-green/15 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-sisain-green text-white font-heading font-bold flex items-center justify-center text-lg mb-4">2</div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">Tutup Rapat Pengunci</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Pastikan seal silikon terpasang rata di bibir tutup, lalu tekan keempat pengunci samping hingga berbunyi <em>klik</em>.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Step 2: Tutup Rapat"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white rounded-3xl p-5 border border-sisain-green/15 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-sisain-green text-white font-heading font-bold flex items-center justify-center text-lg mb-4">3</div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">Scan Kode QR pada Tutup</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Pindai kode QR di sudut tutup wadah kapan saja untuk mengecek panduan pemanasan, pencucian, dan tips penyimpanan.
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Step 3: Scan QR"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="bg-white rounded-3xl p-5 border border-sisain-green/15 shadow-sm relative flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-full bg-sisain-green text-white font-heading font-bold flex items-center justify-center text-lg mb-4">4</div>
+                        <h3 class="font-heading font-bold text-lg text-sisain-dark">Cuci & Gunakan Kembali</h3>
+                        <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+                            Setelah makanan habis, bongkar sekat serta seal silikon, cuci bersih, dan SisaIn siap dipakai kembali setiap hari!
+                        </p>
+                    </div>
+                    <div class="slot-upload-box mt-4" data-slot-label="Foto Step 4: Cuci & Pakai"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Cara Mencuci & Tips Perawatan -->
+    <section id="pencucian" class="py-16 sm:py-20 bg-white border-t border-sisain-green/10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+                
+                <!-- Kolom Kiri: Cara Mencuci Higienis -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-sisain-sage">Kebersihan Maksimal</span>
+                        <h2 class="font-heading text-2xl sm:text-3xl font-extrabold text-sisain-dark mt-1">
+                            Cara Mencuci Wadah & Sekat Silikon
+                        </h2>
+                        <p class="text-stone-600 mt-2 text-sm sm:text-base">
+                            Keunggulan utama SisaIn adalah komponen silikonnya yang dapat dilepas total sehingga tidak ada sisa minyak tersembunyi.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-2xl bg-sisain-cream/70 border border-sisain-green/15 space-y-3">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sisain-green/10 text-sisain-green flex items-center justify-center shrink-0 font-bold">01</div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-base text-sisain-dark">Lepaskan Sekat & Seal Silikon</h4>
+                                    <p class="text-sm text-stone-600 mt-1">Tarik perlahan sekat silikon bagian dalam serta karet seal pada tutup wadah sebelum dicuci.</p>
+                                </div>
+                            </div>
+                            <div class="slot-upload-box" data-slot-label="Foto Cuci 01: Lepas Silikon" data-slot-compact="true"></div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-sisain-cream/70 border border-sisain-green/15 space-y-3">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sisain-green/10 text-sisain-green flex items-center justify-center shrink-0 font-bold">02</div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-base text-sisain-dark">Bilas Sisa Minyak dengan Air Hangat</h4>
+                                    <p class="text-sm text-stone-600 mt-1">Siram menggunakan air hangat untuk meluruhkan lemak atau sisa saus yang menempel pada sudut wadah.</p>
+                                </div>
+                            </div>
+                            <div class="slot-upload-box" data-slot-label="Foto Cuci 02: Bilas Air Hangat" data-slot-compact="true"></div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-sisain-cream/70 border border-sisain-green/15 space-y-3">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sisain-green/10 text-sisain-green flex items-center justify-center shrink-0 font-bold">03</div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-base text-sisain-dark">Gunakan Spons Lembut & Sabun Food-Safe</h4>
+                                    <p class="text-sm text-stone-600 mt-1">Hindari sabut kawat kasar agar permukaan wadah tetap bening dan tidak tergores (goresan dapat menjadi sarang bakteri).</p>
+                                </div>
+                            </div>
+                            <div class="slot-upload-box" data-slot-label="Foto Cuci 03: Spons Lembut" data-slot-compact="true"></div>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-sisain-cream/70 border border-sisain-green/15 space-y-3">
+                            <div class="flex gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-sisain-green/10 text-sisain-green flex items-center justify-center shrink-0 font-bold">04</div>
+                                <div>
+                                    <h4 class="font-heading font-bold text-base text-sisain-dark">Keringkan Sempurna Sebelum Dipasang Kembali</h4>
+                                    <p class="text-sm text-stone-600 mt-1">Tiriskan di rak terbuka hingga seluruh bagian benar-benar kering untuk mencegah kelembapan dan bau apek.</p>
+                                </div>
+                            </div>
+                            <div class="slot-upload-box" data-slot-label="Foto Cuci 04: Tiriskan & Keringkan" data-slot-compact="true"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan: Tips Perawatan (Do's & Don'ts) -->
+                <div id="perawatan" class="lg:col-span-5">
+                    <div class="bg-sisain-dark text-white rounded-3xl p-6 sm:p-8 shadow-xl h-full flex flex-col justify-between">
+                        <div>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-sisain-cream text-xs font-semibold mb-4">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Tips Perawatan Awet
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold leading-snug">
+                                Jaga SisaIn Tetap Awet & Bebas Bau
+                            </h3>
+                            <p class="text-sisain-light/80 text-sm mt-2">
+                                Perawatan yang tepat membuat wadah SisaIn bertahan bertahun-tahun dan tetap higienis.
+                            </p>
+
+                            <ul class="mt-6 space-y-4 text-sm">
+                                <li class="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
+                                    <div class="flex items-start gap-3">
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-sisain-sage shrink-0 mt-0.5"></i>
+                                        <span><strong>Menghilangkan Bau Makanan Tajam:</strong> Rendam wadah dan silikon dengan campuran air hangat + 1 sdm soda kue atau perasan jeruk nipis selama 15 menit.</span>
+                                    </div>
+                                    <div class="slot-upload-box" data-slot-label="Foto Tips 01: Hilangkan Bau" data-slot-dark="true" data-slot-compact="true"></div>
+                                </li>
+                                <li class="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
+                                    <div class="flex items-start gap-3">
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-sisain-sage shrink-0 mt-0.5"></i>
+                                        <span><strong>Menghangatkan di Microwave:</strong> Buka terlebih dahulu tutup pengunci (atau lepaskan tutupnya) sebelum memanaskan makanan di dalam microwave.</span>
+                                    </div>
+                                    <div class="slot-upload-box" data-slot-label="Foto Tips 02: Pakai Microwave" data-slot-dark="true" data-slot-compact="true"></div>
+                                </li>
+                                <li class="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
+                                    <div class="flex items-start gap-3">
+                                        <i data-lucide="check-circle-2" class="w-5 h-5 text-sisain-sage shrink-0 mt-0.5"></i>
+                                        <span><strong>Penyimpanan Rapi:</strong> Simpan dalam keadaan tutup sedikit terbuka jika tidak dipakai dalam waktu lama agar sirkulasi udara terjaga.</span>
+                                    </div>
+                                    <div class="slot-upload-box" data-slot-label="Foto Tips 03: Penyimpanan" data-slot-dark="true" data-slot-compact="true"></div>
+                                </li>
+                                <li class="p-3.5 rounded-2xl bg-white/5 border border-white/10 space-y-2.5">
+                                    <div class="flex items-start gap-3">
+                                        <i data-lucide="alert-triangle" class="w-5 h-5 text-amber-400 shrink-0 mt-0.5"></i>
+                                        <span><strong>Hindari Api Langsung:</strong> Jangan meletakkan wadah di atas kompor, pemanggang, atau oven bersuhu ekstrem.</span>
+                                    </div>
+                                    <div class="slot-upload-box" data-slot-label="Foto Tips 04: Hindari Api" data-slot-dark="true" data-slot-compact="true"></div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-8 pt-5 border-t border-white/15 flex items-center gap-3">
+                            <div class="p-2.5 rounded-xl bg-sisain-green text-white">
+                                <i data-lucide="globe-2" class="w-5 h-5"></i>
+                            </div>
+                            <p class="text-xs text-sisain-light/90 leading-relaxed">
+                                <strong>Satu langkah kecil, dampak besar untuk bumi.</strong> Kurangi makanan terbuang & kemasan plastik sekali pakai.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Kontak & Layanan Pelanggan -->
+    <section id="kontak" class="py-16 sm:py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl border border-sisain-green/15 shadow-lg overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-12">
+                    
+                    <!-- Contact Info -->
+                    <div class="lg:col-span-5 bg-sisain-green text-white p-8 sm:p-10 flex flex-col justify-between">
+                        <div class="space-y-4">
+                            <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-xs font-semibold tracking-wider uppercase">
+                                Hubungi Tim SisaIn
+                            </span>
+                            <h2 class="font-heading text-2xl sm:text-3xl font-extrabold">
+                                Punya Pertanyaan atau Masukan?
+                            </h2>
+                            <p class="text-sisain-light/90 text-sm leading-relaxed">
+                                Kami siap membantu seputar penggunaan produk, pemesanan komunitas kampus, maupun kolaborasi gerakan hijau.
+                            </p>
+
+                            <div class="pt-4 space-y-4 text-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                                        <i data-lucide="mail" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-sisain-light/75 block">Email Resmi</span>
+                                        <span class="font-semibold">halo@sisain.id</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-sisain-light/75 block">WhatsApp Layanan</span>
+                                        <a href="https://wa.me/6282143540832" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline">082143540832</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center shrink-0">
+                                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-sisain-light/75 block">Instagram & Komunitas</span>
+                                        <a href="https://instagram.com/bysisain" target="_blank" rel="noopener noreferrer" class="font-semibold hover:underline">@bysisain</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/15 text-xs text-sisain-light/80">
+                            © 2026 SisaIn — Wadah Baik, Langkah Hijau.
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7 p-8 sm:p-10">
+                        <h3 class="font-heading text-xl font-bold text-sisain-dark mb-1">Kirim Pesan Langsung</h3>
+                        <p class="text-sm text-stone-500 mb-6">Isi formulir di bawah ini, tim kami akan segera merespons.</p>
+
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="nama" class="block text-xs font-semibold uppercase text-stone-600 mb-1.5">Nama Lengkap</label>
+                                    <input type="text" id="nama" required placeholder="Contoh: Aulia Rahma" 
+                                           class="w-full px-4 py-3 rounded-xl bg-sisain-cream/50 border border-stone-200 focus:border-sisain-green focus:ring-2 focus:ring-sisain-green/20 outline-none text-sm transition">
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-xs font-semibold uppercase text-stone-600 mb-1.5">Email / WhatsApp</label>
+                                    <input type="text" id="email" required placeholder="nama@email.com" 
+                                           class="w-full px-4 py-3 rounded-xl bg-sisain-cream/50 border border-stone-200 focus:border-sisain-green focus:ring-2 focus:ring-sisain-green/20 outline-none text-sm transition">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="topik" class="block text-xs font-semibold uppercase text-stone-600 mb-1.5">Topik Pertanyaan</label>
+                                <select id="topik" class="w-full px-4 py-3 rounded-xl bg-sisain-cream/50 border border-stone-200 focus:border-sisain-green focus:ring-2 focus:ring-sisain-green/20 outline-none text-sm transition">
+                                    <option value="Panduan Penggunaan & Perawatan">Panduan Penggunaan & Perawatan</option>
+                                    <option value="Pemesanan Produk / Merchandise">Pemesanan Produk SisaIn</option>
+                                    <option value="Kolaborasi Kampus / Komunitas">Kolaborasi Kampus & Gerakan Hijau</option>
+                                    <option value="Saran & Masukan Prototype">Saran & Masukan Prototype</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="pesan" class="block text-xs font-semibold uppercase text-stone-600 mb-1.5">Pesan Anda</label>
+                                <textarea id="pesan" rows="3" required placeholder="Tuliskan pertanyaan atau masukan Anda..." 
+                                          class="w-full px-4 py-3 rounded-xl bg-sisain-cream/50 border border-stone-200 focus:border-sisain-green focus:ring-2 focus:ring-sisain-green/20 outline-none text-sm transition"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-sisain-green text-white font-semibold text-sm hover:bg-sisain-dark transition shadow-md flex items-center justify-center gap-2">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Kirim Pesan</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Notification Toast (Pengganti alert()) -->
+    <div id="toast-box" class="fixed bottom-5 right-5 z-50 hidden max-w-sm bg-sisain-dark text-white px-5 py-4 rounded-2xl shadow-2xl border border-sisain-sage/40 flex items-start gap-3 transition-all">
+        <i data-lucide="check-circle" class="w-5 h-5 text-sisain-sage shrink-0 mt-0.5"></i>
+        <div class="text-sm">
+            <p id="toast-title" class="font-bold">Berhasil!</p>
+            <p id="toast-msg" class="text-sisain-light/90 text-xs mt-0.5">Pesan Anda telah terkirim.</p>
+        </div>
+    </div>
+
+    <!-- Lightbox Modal untuk Perbesar Gambar Prototype -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm p-4 flex items-center justify-center" onclick="closeLightbox()">
+        <div class="relative max-w-5xl w-full bg-white rounded-3xl p-3 shadow-2xl" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" aria-label="Tutup" class="absolute -top-3 -right-3 w-10 h-10 rounded-full bg-sisain-green text-white flex items-center justify-center shadow-lg hover:bg-sisain-dark transition">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <img id="lightbox-img" src="Gemini_Generated_Image_ukntjyukntjyuknt.jpg" alt="Detail Prototype SisaIn" class="w-full h-auto max-h-[85vh] object-contain rounded-2xl">
+        </div>
+    </div>
+
+    <!-- Modal Pengunggah Gambar Lokal (Memudahkan preview instan file logo & prototype Anda) -->
+    <div id="uploader-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm p-4 flex items-center justify-center" onclick="closePhotoUploader()">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center">
+                <h3 class="font-heading font-bold text-lg text-sisain-dark">Muat Gambar Logo & Prototype</h3>
+                <button onclick="closePhotoUploader()" class="p-1.5 rounded-lg hover:bg-stone-100 text-stone-500">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            <p class="text-xs text-stone-600 leading-relaxed">
+                Jika Anda membuka file HTML ini di browser terpisah dan gambar lokal belum muncul otomatis, pilih file gambar <strong>Logo</strong> dan <strong>Prototype</strong> dari komputer/HP Anda di sini:
+            </p>
+            <div class="space-y-3">
+                <label class="block p-3.5 rounded-2xl border border-dashed border-sisain-green/40 bg-sisain-cream/50 cursor-pointer hover:bg-sisain-light/50 transition">
+                    <span class="text-xs font-bold text-sisain-green block mb-1">1. Pilih Gambar Logo SisaIn</span>
+                    <input type="file" accept="image/*" onchange="previewCustomImage(event, 'logo')" class="text-xs text-stone-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sisain-green file:text-white">
+                </label>
+
+                <label class="block p-3.5 rounded-2xl border border-dashed border-sisain-green/40 bg-sisain-cream/50 cursor-pointer hover:bg-sisain-light/50 transition">
+                    <span class="text-xs font-bold text-sisain-green block mb-1">2. Pilih Gambar Prototype / Infografis</span>
+                    <input type="file" accept="image/*" onchange="previewCustomImage(event, 'prototype')" class="text-xs text-stone-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sisain-green file:text-white">
+                </label>
+
+                <label class="block p-3.5 rounded-2xl border border-dashed border-sisain-green/40 bg-sisain-cream/50 cursor-pointer hover:bg-sisain-light/50 transition">
+                    <span class="text-xs font-bold text-sisain-green block mb-1">3. Pilih Gambar Galeri Aktivitas & Perawatan</span>
+                    <input type="file" accept="image/*" onchange="previewCustomImage(event, 'gallery')" class="text-xs text-stone-600 file:mr-3 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-sisain-green file:text-white">
+                </label>
+            </div>
+            <button onclick="closePhotoUploader()" class="w-full py-3 rounded-xl bg-sisain-green text-white font-semibold text-sm hover:bg-sisain-dark transition">
+                Selesai
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Inisialisasi Slot Upload Gambar di Setiap Poin & Step
+        function initUploadSlots() {
+            document.querySelectorAll('.slot-upload-box').forEach((box, idx) => {
+                const label = box.getAttribute('data-slot-label') || `Upload Foto #${idx + 1}`;
+                const isDark = box.getAttribute('data-slot-dark') === 'true';
+                const isCompact = box.getAttribute('data-slot-compact') === 'true';
+                const inputId = `slot-file-input-${idx}`;
+                const imgId = `slot-preview-img-${idx}`;
+
+                const containerStyle = isDark
+                    ? 'border-white/25 bg-white/5 hover:bg-white/10 text-sisain-light/90'
+                    : 'border-sisain-green/30 bg-white/80 hover:bg-sisain-light/50 text-sisain-green';
+
+                const heightClass = isCompact ? 'h-28' : 'h-36';
+
+                box.innerHTML = `
+                    <input type="file" id="${inputId}" accept="image/*" class="hidden">
+                    <div class="slot-empty rounded-2xl border-2 border-dashed ${containerStyle} p-3 text-center cursor-pointer transition flex flex-col items-center justify-center gap-1.5 ${heightClass}">
+                        <i data-lucide="image-plus" class="w-5 h-5 opacity-80"></i>
+                        <span class="text-xs font-semibold leading-tight">${label}</span>
+                        <span class="text-[10px] opacity-70">Klik untuk pilih 1 gambar</span>
+                    </div>
+                    <div class="slot-filled hidden relative rounded-2xl overflow-hidden border ${isDark ? 'border-white/20 bg-black/30' : 'border-sisain-green/20 bg-white'} group">
+                        <img id="${imgId}" src="" alt="${label}" class="w-full ${heightClass} object-cover cursor-pointer">
+                        <div class="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2 p-2">
+                            <button type="button" class="btn-zoom px-2.5 py-1.5 rounded-lg bg-white text-sisain-dark text-[11px] font-semibold flex items-center gap-1 shadow">
+                                <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i> Lihat
+                            </button>
+                            <button type="button" class="btn-change px-2.5 py-1.5 rounded-lg bg-sisain-green text-white text-[11px] font-semibold flex items-center gap-1 shadow">
+                                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Ganti
+                            </button>
+                            <button type="button" class="btn-remove p-1.5 rounded-lg bg-red-600 text-white text-[11px] shadow" title="Hapus Gambar">
+                                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                const fileInput = box.querySelector(`#${inputId}`);
+                const emptyBox = box.querySelector('.slot-empty');
+                const filledBox = box.querySelector('.slot-filled');
+                const previewImg = box.querySelector(`#${imgId}`);
+
+                emptyBox.addEventListener('click', () => fileInput.click());
+                box.querySelector('.btn-change').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fileInput.click();
+                });
+                box.querySelector('.btn-zoom').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    openLightbox(imgId);
+                });
+                previewImg.addEventListener('click', () => openLightbox(imgId));
+
+                box.querySelector('.btn-remove').addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    fileInput.value = '';
+                    previewImg.src = '';
+                    filledBox.classList.add('hidden');
+                    emptyBox.classList.remove('hidden');
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    const file = e.target.files[0];
+                    if (!file) return;
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        previewImg.src = ev.target.result;
+                        emptyBox.classList.add('hidden');
+                        filledBox.classList.remove('hidden');
+                        showToast('Gambar Ditambahkan', `${label} berhasil dimuat.`);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            });
+        }
+
+        // Jalankan pembuatan slot upload lalu render ikon Lucide
+        initUploadSlots();
+        lucide.createIcons();
+
+        // Toggle Menu Mobile
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Switcher Mode Panduan Penggunaan (Dengan Sekat vs Tanpa Sekat)
+        function switchUsageMode(mode) {
+            const btnSekat = document.getElementById('btn-mode-sekat');
+            const btnTanpa = document.getElementById('btn-mode-tanpa');
+            const desc = document.getElementById('mode-description');
+            const step1 = document.getElementById('step1-text');
+
+            if (mode === 'sekat') {
+                btnSekat.className = "px-4 sm:px-6 py-2.5 rounded-xl text-sm font-semibold bg-sisain-green text-white transition";
+                btnTanpa.className = "px-4 sm:px-6 py-2.5 rounded-xl text-sm font-semibold text-stone-600 hover:text-sisain-green transition";
+                desc.innerHTML = "<strong>Mode Dengan Sekat:</strong> Pasang sekat silikon di dalam wadah untuk memisahkan nasi (450 ml), lauk gorengan (150 ml), dan jajanan/sayur (150 ml) agar rasa tidak bercampur.";
+                step1.textContent = "Masukkan nasi pada kompartemen besar dan pisahkan lauk atau camilan ke dua sekat kecil agar tetap renyah dan rapi.";
+            } else {
+                btnTanpa.className = "px-4 sm:px-6 py-2.5 rounded-xl text-sm font-semibold bg-sisain-green text-white transition";
+                btnSekat.className = "px-4 sm:px-6 py-2.5 rounded-xl text-sm font-semibold text-stone-600 hover:text-sisain-green transition";
+                desc.innerHTML = "<strong>Mode Tanpa Sekat:</strong> Lepas kedua sekat silikon untuk mendapatkan kapasitas penuh—cocok untuk makanan berkuah, sup, mie, atau porsi besar.";
+                step1.textContent = "Angkat sekat silikon dari wadah utama, lalu tuangkan makanan berkuah atau porsi besar secara merata ke dalam wadah.";
+            }
+        }
+
+        // Lightbox Controls
+        function openLightbox(imgId = 'prototype-main-img') {
+            const targetImg = document.getElementById(imgId) || document.getElementById('prototype-main-img');
+            document.getElementById('lightbox-img').src = targetImg.src;
+            document.getElementById('lightbox-modal').classList.remove('hidden');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // Fallback jika gambar lokal belum terhubung
+        function handlePrototypeFallback(imgEl) {
+            imgEl.classList.add('hidden');
+            document.getElementById('prototype-fallback-box').classList.remove('hidden');
+        }
+
+        function handleGalleryFallback(imgEl) {
+            imgEl.classList.add('hidden');
+            document.getElementById('gallery-fallback-box').classList.remove('hidden');
+        }
+
+        // Modal Uploader Gambar Lokal
+        function openPhotoUploader() {
+            document.getElementById('uploader-modal').classList.remove('hidden');
+        }
+        function closePhotoUploader() {
+            document.getElementById('uploader-modal').classList.add('hidden');
+        }
+
+        function previewCustomImage(event, target) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                if (target === 'logo') {
+                    document.querySelectorAll('img[alt="Logo SisaIn"]').forEach(img => {
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+                    });
+                    const fallbackLogo = document.getElementById('fallback-logo');
+                    if (fallbackLogo) fallbackLogo.classList.add('hidden');
+                    showToast('Logo Diperbarui', 'Gambar logo SisaIn berhasil dimuat.');
+                } else if (target === 'gallery') {
+                    const galleryImg = document.getElementById('gallery-visual-img');
+                    galleryImg.src = e.target.result;
+                    galleryImg.classList.remove('hidden');
+                    document.getElementById('gallery-fallback-box').classList.add('hidden');
+                    showToast('Galeri Diperbarui', 'Gambar aktivitas & perawatan berhasil ditampilkan.');
+                } else {
+                    const mainImg = document.getElementById('prototype-main-img');
+                    mainImg.src = e.target.result;
+                    mainImg.classList.remove('hidden');
+                    document.getElementById('prototype-fallback-box').classList.add('hidden');
+                    showToast('Prototype Diperbarui', 'Gambar asli prototype berhasil ditampilkan.');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Form Kontak Handler
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            showToast('Pesan Terkirim!', `Terima kasih ${nama}, tim SisaIn akan segera menghubungi Anda.`);
+            event.target.reset();
+        }
+
+        // Toast Notification
+        function showToast(title, message) {
+            const toast = document.getElementById('toast-box');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-msg').textContent = message;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
